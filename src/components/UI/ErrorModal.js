@@ -6,7 +6,7 @@ import Card from "./Card";
 import Button from "./Button";
 
 const Backdrop = props => {
-    return <div className={classes.backdrop} onClick={props.onConfirm} />;
+    return <div className={classes.backdrop} onClick={props.onConfirm}/>;
 }
 
 const ModalOverlay = props => {
@@ -25,8 +25,9 @@ const ModalOverlay = props => {
 
 const ErrorModal = (props) => {
     return <Fragment>
-        {ReactDOM.createPortal(<Backdrop onClick={props.onConfirm} />, document.getElementById('backdrop-root'))}
-        {ReactDOM.createPortal(<ModalOverlay onClick={props.onConfirm} title={props.title} message={props.message} />, document.getElementById('overlay-root'))}
+        {ReactDOM.createPortal(<Backdrop onConfirm={props.onConfirm}/>, document.getElementById('backdrop-root'))}
+        {ReactDOM.createPortal(<ModalOverlay onConfirm={props.onConfirm} title={props.title}
+                                             message={props.message}/>, document.getElementById('overlay-root'))}
     </Fragment>
 }
 
